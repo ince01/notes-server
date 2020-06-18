@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "func-names": ["error", "never"]
+  }
+}
