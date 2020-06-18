@@ -1,0 +1,12 @@
+{
+  "name": "UTE Exchange",
+  "version": "0.0.0",
+  "description": "Full list api document for UTE Exchange App. API end point with prefix: /api/v1 ",
+  "title": "API Docs | UTE Exchange",
+  "template": {
+    "withCompare": false
+  },
+  "order": [
+    "User"
+  ]
+}
