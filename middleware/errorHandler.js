@@ -15,7 +15,7 @@ const errorHandler = (err, req, res, next) => {
   }
 
   // Log error if needed
-  debugError(err);
+  debugError(err.message, err.stack);
 
   return res.status(error.statusCode || httpStatus.INTERNAL_SERVER_ERROR).json({
     name: error.name,

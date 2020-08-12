@@ -1,12 +1,10 @@
 {
-  "name": "UTE Exchange",
+  "name": "Notes API",
   "version": "0.0.0",
-  "description": "Full list api document for UTE Exchange App. API end point with prefix: /api/v1 ",
-  "title": "API Docs | UTE Exchange",
+  "description": "Full list api document for Notes App. API end point with prefix: /api/v1 ",
+  "title": "API Docs | Notes App",
   "template": {
     "withCompare": false
   },
-  "order": [
-    "User"
-  ]
+  "order": ["User"]
 }

@@ -1,18 +1,21 @@
-import { validationResult } from 'express-validator';
+import debug from 'debug';
 
 import { Users } from '../../db';
 
+const debugUser = debug('module:user');
+
 export default {
   signUp: async (req, res, next) => {
+    const { email, password, fullName, gender, dateOfBirth, avatar } = req.body;
+
     try {
-      const errors = validationResult(req);
+      const isExist = await Users.exists({ email });
 
-      if (!errors.isEmpty()) {
-        next(res.failure({ errors: errors.array(), message: 'Sign up failure' }));
-        return;
+      debugUser('User already exist: ', isExist);
+
+      if (isExist) {
+        throw res.failure({ message: 'Email already exists', code: 'EMAIL_ALREADY_EXIST' });
       }
-
-      const { email, password, fullName, gender, dateOfBirth, avatar } = req.body;
 
       const user = await Users.create({
         email,
@@ -23,7 +26,7 @@ export default {
         avatar,
       });
 
-      res.success({ data: user, message: 'Sign up success' });
+      res.success({ message: 'Sign up success', data: user });
     } catch (err) {
       next(err);
     }
@@ -36,15 +39,13 @@ export default {
       const user = await Users.findOne({ email });
 
       if (!user) {
-        next(res.failure({ message: 'User Not Found', code: 'USER_NOT_FOUND' }));
-        return;
+        throw res.failure({ message: 'User Not Found', code: 'USER_NOT_FOUND' });
       }
 
       const isMatch = await user.comparePassword(password);
 
       if (!isMatch) {
-        next(res.failure({ message: 'Invaild email or password', code: 'INVAILD_IDENTIFIER' }));
-        return;
+        throw res.failure({ message: 'Invaild email or password', code: 'INVAILD_IDENTIFIER' });
       }
 
       const token = user.generateToken();

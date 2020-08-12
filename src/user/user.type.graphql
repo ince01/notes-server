@@ -1,0 +1,35 @@
+type Query {
+  me: User! @isAuthenticated
+}
+
+type Mutation {
+  signIn(email: EmailAddress!, password: String!): Token!
+  signUp(input: SignUpInput!): Token!
+}
+
+type Token {
+  token: String!
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+type User {
+  id: ID!
+  email: EmailAddress!
+  fullName: String!
+  gender: Gender!
+  dateOfBirth: DateTime
+}
+
+input SignUpInput {
+  email: EmailAddress!
+  password: String!
+  fullName: String!
+  gender: Gender!
+  dateOfBirth: DateTime
+  avatar: URL
+}

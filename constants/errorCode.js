@@ -1,0 +1,3 @@
+export const TOKEN_EXPIRED = 'TOKEN_EXPIRED';
+
+export const INVAILD_TOKEN = 'INVAILD_TOKEN';

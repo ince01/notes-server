@@ -1,6 +1,6 @@
 {
   "name": "notes-server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "babel-node ./bin/www",
@@ -10,17 +10,23 @@
     "apidoc": " apidoc -i apidoc/ -o apidoc/output/"
   },
   "dependencies": {
+    "apollo-server-express": "^2.16.0",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
     "compression": "^1.7.4",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dataloader": "^2.0.0",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "express-status-monitor": "^1.2.8",
     "express-validator": "^6.5.0",
+    "graphql": "^15.3.0",
+    "graphql-middleware": "^4.0.2",
+    "graphql-scalars": "^1.2.6",
+    "graphql-tools": "^6.0.15",
     "helmet": "^3.21.2",
     "http-errors": "~1.6.3",
     "http-status": "^1.4.2",
