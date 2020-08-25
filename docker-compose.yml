@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  #define a service called app
+  notes-server:
+    #adding a container name
+    container_name: notes-server-container
+    #building the app image using the Dockerfile in the current directory
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - notes-db
+    links:
+      - 'notes-db:database'
+  #create another service called mongo
+  notes-db:
+    container_name: notes-db-container
+    #pull the official mongodb image from DockerHub registry
+    image: mongo
+    #mount the host directory for persistent storage
+    volumes:
+      - ./mongo-volum:/data/db

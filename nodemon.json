@@ -1,0 +1,5 @@
+{
+  "ignore": [".git", "node_modules/**/node_modules", "mongo-volum"],
+  "watch": ["**.**", ".env.dev"],
+  "ext": "js,json,html,graphql"
+}
