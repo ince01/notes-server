@@ -20,7 +20,7 @@
     "dataloader": "^2.0.0",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "express-status-monitor": "^1.2.8",
     "express-validator": "^6.5.0",
     "graphql": "^15.3.0",
